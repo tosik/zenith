@@ -4,7 +4,7 @@ package zenith.context.title.views
 	import starling.display.Sprite;
 	import starling.textures.Texture;
 
-	public class TitleView extends starling.display.Sprite
+	public class TitleView extends Sprite
 	{
 		public var startButton:Button;
 

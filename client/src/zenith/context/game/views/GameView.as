@@ -4,5 +4,11 @@ package zenith.context.game.views
 	
 	public class GameView extends Sprite
 	{
+		public function GameView()
+		{
+			addChild(new BackgroundView);
+			addChild(new GroundView);
+			addChild(new PlaneView);
+		}
 	}
 }

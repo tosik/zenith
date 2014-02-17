@@ -1,10 +1,10 @@
 package zenith.context.title.views
 {
-	import robotlegs.extensions.starlingViewMap.impl.StarlingMediator;
+	import robotlegs.bender.extensions.starling.impl.StarlingMediator;
 	
 	import starling.events.Event;
 	
-	import zenith.events.GameStartRequested;
+	import zenith.commons.signals.GameStartRequested;
 	
 	public class TitleViewMediator extends StarlingMediator
 	{
@@ -16,7 +16,7 @@ package zenith.context.title.views
 		
 		override public function initialize():void
 		{
-			eventMap.mapStarlingListener(view.startButton, Event.TRIGGERED,
+			eventMap.mapStarlingEvent(view.startButton, Event.TRIGGERED,
 				function(e:Event):void { gameStartRequested.dispatch(); });
 		}
 	}
