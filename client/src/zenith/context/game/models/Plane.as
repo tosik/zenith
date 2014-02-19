@@ -40,13 +40,16 @@ package zenith.context.game.models
 		public function set height(value:Number):void
 		{
 			_height = value;
+
 			changed.dispatch();
 		}
 
 		public function flap():void
 		{
 			velocity = 0;
-			acceleration = -6;
+			acceleration = -14;
+
+			changed.dispatch();
 		}
 		
 		public function fall():void
@@ -54,7 +57,19 @@ package zenith.context.game.models
 			velocity += acceleration;
 			height += velocity;
 			
-			acceleration = 0.2;
+			acceleration = 1;
+			
+			changed.dispatch();
+		}
+		
+		public function collided():Boolean
+		{
+			if (height < field.rectangle.top)
+				return true;
+			if (height > field.rectangle.bottom)
+				return true;
+			
+			return false;
 		}
 	}
 }

@@ -6,7 +6,7 @@ package zenith.context.game.models
 
 		public function make():Obstacle
 		{
-			_count = 100;
+			_count = 30;
 			return new Obstacle(Math.random() * 10);
 		}
 		
