@@ -6,14 +6,17 @@ package zenith.context.game
 	import zenith.commons.Config;
 	import zenith.commons.signals.HeartbeatSignal;
 	import zenith.context.game.commands.FlapPlaneCommand;
+	import zenith.context.game.commands.MakeGameOverCommand;
 	import zenith.context.game.commands.StartHeartbeatCommand;
 	import zenith.context.game.commands.UpdateObstacleCommand;
 	import zenith.context.game.commands.UpdatePlaneCommand;
 	import zenith.context.game.models.Field;
 	import zenith.context.game.models.HeartbeatMachine;
+	import zenith.context.game.models.ObstacleCollisionDetector;
 	import zenith.context.game.models.ObstacleMaker;
 	import zenith.context.game.models.ObstacleViewFactory;
 	import zenith.context.game.models.Plane;
+	import zenith.context.game.signals.Collided;
 	import zenith.context.game.signals.GameViewAppended;
 	import zenith.context.game.signals.WindowTouched;
 	import zenith.context.game.views.GameView;
@@ -32,12 +35,14 @@ package zenith.context.game
 			
 			// signals
 			injector.map(GameViewAppended).asSingleton();
+			injector.map(Collided).asSingleton();
 			
 			// models
 			injector.map(Field).asSingleton();
 			injector.map(Plane).asSingleton();
 			injector.map(ObstacleMaker).asSingleton();
 			injector.map(ObstacleViewFactory).asSingleton();
+			injector.map(ObstacleCollisionDetector).asSingleton();
 			
 			// mediators
 			mediatorMap.map(GameView).toMediator(GameViewMediator);
@@ -49,6 +54,7 @@ package zenith.context.game
 			signalCommandMap.map(HeartbeatSignal).toCommand(UpdateObstacleCommand);
 			signalCommandMap.map(GameViewAppended).toCommand(StartHeartbeatCommand);
 			signalCommandMap.map(WindowTouched).toCommand(FlapPlaneCommand);
+			signalCommandMap.map(Collided).toCommand(MakeGameOverCommand);
 		}
 		
 		private function configureHeartbeatMachine():void

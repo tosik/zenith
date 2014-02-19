@@ -1,5 +1,6 @@
 package zenith.context.game.views
 {
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
@@ -27,6 +28,11 @@ package zenith.context.game.views
 			
 			addChild(upperImage);
 			addChild(lowerImage);
+		}
+		
+		public function get realObstacles():Vector.<DisplayObject>
+		{
+			return Vector.<DisplayObject>([upperImage, lowerImage]);
 		}
 	}
 }

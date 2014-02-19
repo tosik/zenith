@@ -4,6 +4,7 @@ package zenith.context.game.commands
 	
 	import zenith.commons.SceneRoot;
 	import zenith.context.game.models.Obstacle;
+	import zenith.context.game.models.ObstacleCollisionDetector;
 	import zenith.context.game.models.ObstacleMaker;
 	import zenith.context.game.models.ObstacleViewFactory;
 	import zenith.context.game.views.ObstacleView;
@@ -12,6 +13,9 @@ package zenith.context.game.commands
 	{
 		[Inject]
 		public var factory:ObstacleViewFactory;
+		
+		[Inject]
+		public var collisionDetector:ObstacleCollisionDetector;
 		
 		[Inject]
 		public var maker:ObstacleMaker;
@@ -27,6 +31,7 @@ package zenith.context.game.commands
 				var obstacle:Obstacle = maker.make();
 				var obstacleView:ObstacleView = factory.create(obstacle);
 				sceneRoot.addChild(obstacleView);
+				collisionDetector.add(obstacleView);
 			}
 		}
 	}

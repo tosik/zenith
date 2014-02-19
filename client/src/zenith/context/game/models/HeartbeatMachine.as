@@ -22,6 +22,11 @@ package zenith.context.game.models
 			eventMap.mapStarlingEvent(starling.stage, Event.ENTER_FRAME, onEnterFrame);
 		}
 		
+		public function stop():void
+		{
+			eventMap.unmapListeners();
+		}
+		
 		private function onEnterFrame(e:Event):void
 		{
 			heartbeat.dispatch();

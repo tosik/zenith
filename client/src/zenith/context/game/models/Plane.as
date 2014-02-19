@@ -15,7 +15,7 @@ package zenith.context.game.models
 
 		public function Plane()
 		{
-			_height = 0;
+			_height = 200;
 			velocity = 0;
 			acceleration = 0;
 
