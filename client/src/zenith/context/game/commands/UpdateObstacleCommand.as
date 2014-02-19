@@ -21,6 +21,7 @@ package zenith.context.game.commands
 		
 		override public function execute():void
 		{
+			maker.countDown();
 			if (maker.nextExists())
 			{
 				var obstacle:Obstacle = maker.make();
