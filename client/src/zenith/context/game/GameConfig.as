@@ -9,6 +9,7 @@ package zenith.context.game
 	import zenith.context.game.commands.StartHeartbeatCommand;
 	import zenith.context.game.commands.UpdateObstacleCommand;
 	import zenith.context.game.commands.UpdatePlaneCommand;
+	import zenith.context.game.models.Field;
 	import zenith.context.game.models.HeartbeatMachine;
 	import zenith.context.game.models.ObstacleMaker;
 	import zenith.context.game.models.ObstacleViewFactory;
@@ -33,6 +34,7 @@ package zenith.context.game
 			injector.map(GameViewAppended).asSingleton();
 			
 			// models
+			injector.map(Field).asSingleton();
 			injector.map(Plane).asSingleton();
 			injector.map(ObstacleMaker).asSingleton();
 			injector.map(ObstacleViewFactory).asSingleton();

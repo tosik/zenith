@@ -4,6 +4,9 @@ package zenith.context.game.models
 
 	public class Plane
 	{
+		[Inject]
+		public var field:Field;
+
 		public var changed:Signal = new Signal;
 
 		private var _height:Number;
