@@ -1,10 +1,9 @@
 package zenith.context.game.models
 {
-	import flash.events.Event;
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
+	import robotlegs.bender.extensions.starling.impl.StarlingEventMap;
 	
-	import robotlegs.bender.extensions.localEventMap.impl.EventMap;
+	import starling.core.Starling;
+	import starling.events.Event;
 	
 	import zenith.commons.signals.HeartbeatSignal;
 
@@ -13,17 +12,17 @@ package zenith.context.game.models
 		[Inject]
 		public var heartbeat:HeartbeatSignal;
 
-		private var timer:Timer;
-		private var eventMap:EventMap = new EventMap();
-
+		[Inject]
+		public var starling:Starling;
+		
+		private var eventMap:StarlingEventMap = new StarlingEventMap();
+		
 		public function start():void
 		{
-			timer = new Timer(10);
-			eventMap.mapListener(timer, TimerEvent.TIMER, onTimer);
-			timer.start();
+			eventMap.mapStarlingEvent(starling.stage, Event.ENTER_FRAME, onEnterFrame);
 		}
 		
-		private function onTimer(e:Event):void
+		private function onEnterFrame(e:Event):void
 		{
 			heartbeat.dispatch();
 		}
