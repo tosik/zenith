@@ -6,11 +6,11 @@ package robotlegs.bender.signalMap.impl
 
 	public class SignalMap implements ISignalMap
 	{
-		private var signals:Vector.<ISignal> = new Vector.<ISignal>;
+		private var signals:Vector.<Object> = new Vector.<Object>;
 		public function mapListener(signal:ISignal, listener:Function):void
 		{
 			signal.add(listener);
-			signals.push(signal);
+			signals.push( { signal: signal, listener: listener });
 		}
 		public function unmapListener(signal:ISignal, listener:Function):void
 		{
@@ -19,9 +19,9 @@ package robotlegs.bender.signalMap.impl
 		}
 		public function unmapListeners():void
 		{
-			for each (var signal:ISignal in signals)
+			for each (var obj:Object in signals)
 			{
-				signal.removeAll();
+				unmapListener(obj.signal, obj.listener);
 			}
 		}
 	}
