@@ -37,7 +37,7 @@ package zenith.context.game.models
 		{
 			for each (var view:DisplayObject in list)
 			{
-				if (view.bounds.intersects(bounds))
+				if (view.getBounds(view.stage).intersects(bounds))
 					return true;
 			}
 			
