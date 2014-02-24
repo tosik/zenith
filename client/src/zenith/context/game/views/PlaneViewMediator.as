@@ -57,7 +57,7 @@ package zenith.context.game.views
 		
 		private function detectCollision():void
 		{
-			if (collisionDetector.hitTest(view.bounds))
+			if (collisionDetector.hitTest(view.collision))
 			{
 				collided.dispatch();
 			}
@@ -65,9 +65,9 @@ package zenith.context.game.views
 		
 		private function checkCheckpoint():void
 		{
-			if (checkpointDetector.hitTest(view.bounds))
+			if (checkpointDetector.hitTest(view.collision))
 			{
-				checkpointDetector.removeHitView(view.bounds);
+				checkpointDetector.removeHitView(view.collision);
 				checkpointPassed.dispatch();
 			}
 		}

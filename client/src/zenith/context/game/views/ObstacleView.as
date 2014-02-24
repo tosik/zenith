@@ -8,7 +8,7 @@ package zenith.context.game.views
 	
 	public class ObstacleView extends Sprite
 	{
-		[Embed(source="assets/wall.jpg")]
+		[Embed(source="assets/wall.png")]
 		private static const ObstacleImage:Class;
 
 		private var upperImage:Image;
@@ -21,12 +21,13 @@ package zenith.context.game.views
 			upperImage = new Image(texture);
 			lowerImage = new Image(texture);
 			
-			upperImage.height = height * 32;
-			upperImage.width = 5 * 32;
+			upperImage.y = - height * 32;
+			upperImage.height = 8 * 32;
+			upperImage.width = 4 * 32;
 			
-			lowerImage.y = height * 32 + 256;
-			lowerImage.height = 1000 - lowerImage.y;
-			lowerImage.width = 5 * 32;
+			lowerImage.y = upperImage.bounds.bottom + 256;
+			lowerImage.height = 8 * 32;
+			lowerImage.width = 4 * 32;
 			
 			addChild(upperImage);
 			addChild(lowerImage);

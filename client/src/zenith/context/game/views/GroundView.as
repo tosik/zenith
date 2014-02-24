@@ -5,7 +5,7 @@ package zenith.context.game.views
 	
 	public class GroundView extends Sprite
 	{
-		[Embed(source="assets/wall.jpg")]
+		[Embed(source="assets/ground.png")]
 		private static const WallImage:Class;
 
 		private var wall:Image;
@@ -14,6 +14,8 @@ package zenith.context.game.views
 			wall = Image.fromBitmap(new WallImage);
 			addChild(wall);
 			wall.y = 600;
+			wall.width *= 6;
+			wall.height *= 6;
 		}
 	}
 }
