@@ -3,6 +3,7 @@ package zenith.context.game.commands
 	import robotlegs.bender.bundles.mvcs.Command;
 	
 	import zenith.commons.SceneRoot;
+	import zenith.context.game.models.CheckpointDetector;
 	import zenith.context.game.models.Obstacle;
 	import zenith.context.game.models.ObstacleCollisionDetector;
 	import zenith.context.game.models.ObstacleMaker;
@@ -16,6 +17,9 @@ package zenith.context.game.commands
 		
 		[Inject]
 		public var collisionDetector:ObstacleCollisionDetector;
+		
+		[Inject]
+		public var checkpointDetector:CheckpointDetector;
 		
 		[Inject]
 		public var maker:ObstacleMaker;
@@ -32,6 +36,7 @@ package zenith.context.game.commands
 				var obstacleView:ObstacleView = factory.create(obstacle);
 				sceneRoot.addChild(obstacleView);
 				collisionDetector.add(obstacleView);
+				checkpointDetector.add(obstacleView.checkpoint);
 			}
 		}
 	}

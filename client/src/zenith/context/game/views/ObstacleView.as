@@ -2,6 +2,7 @@ package zenith.context.game.views
 {
 	import starling.display.DisplayObject;
 	import starling.display.Image;
+	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
 	
@@ -12,6 +13,7 @@ package zenith.context.game.views
 
 		private var upperImage:Image;
 		private var lowerImage:Image;
+		private var _checkpoint:DisplayObject;
 
 		public function ObstacleView(height:Number)
 		{
@@ -28,11 +30,22 @@ package zenith.context.game.views
 			
 			addChild(upperImage);
 			addChild(lowerImage);
+
+			_checkpoint = new Quad(1, 1000, 0, false);
+			_checkpoint.x = upperImage.width;
+			_checkpoint.y = 0;
+			_checkpoint.alpha = 0;
+			addChild(_checkpoint);
 		}
 		
 		public function get realObstacles():Vector.<DisplayObject>
 		{
 			return Vector.<DisplayObject>([upperImage, lowerImage]);
+		}
+		
+		public function get checkpoint():DisplayObject
+		{
+			return _checkpoint;
 		}
 	}
 }

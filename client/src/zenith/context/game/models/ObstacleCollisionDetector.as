@@ -1,47 +1,22 @@
 package zenith.context.game.models
 {
-	import flash.geom.Rectangle;
-	
-	import robotlegs.bender.extensions.starling.impl.StarlingEventMap;
-	
 	import starling.display.DisplayObject;
-	import starling.events.Event;
 	
 	import zenith.context.game.views.ObstacleView;
 
-	public class ObstacleCollisionDetector
+	public class ObstacleCollisionDetector extends CheckpointDetector
 	{
-		private var eventMap:StarlingEventMap = new StarlingEventMap;
-		private var list:Vector.<DisplayObject> = new Vector.<DisplayObject>;
-
-		public function add(view:DisplayObject):void
+		override public function add(view:DisplayObject):void
 		{
 			if (view is ObstacleView)
 			{
 				for each (var child:DisplayObject in (view as ObstacleView).realObstacles)
-					add(child);
+				add(child);
 			}
 			else
 			{
-				list.push(view);
-				eventMap.mapStarlingEvent(view, Event.REMOVED_FROM_STAGE, removed);
+				super.add(view);
 			}
-		}
-		
-		private function removed(e:Event):void
-		{
-			list.splice(list.indexOf(e.target as DisplayObject), 1);
-		}
-
-		public function hitTest(bounds:Rectangle):Boolean
-		{
-			for each (var view:DisplayObject in list)
-			{
-				if (view.getBounds(view.stage).intersects(bounds))
-					return true;
-			}
-			
-			return false;
 		}
 	}
 }

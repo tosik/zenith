@@ -1,12 +1,12 @@
 package zenith.context.game.views
 {
-	import flash.geom.Point;
-	
 	import robotlegs.bender.extensions.starling.impl.StarlingMediator;
 	
 	import zenith.commons.signals.HeartbeatSignal;
+	import zenith.context.game.models.CheckpointDetector;
 	import zenith.context.game.models.ObstacleCollisionDetector;
 	import zenith.context.game.models.Plane;
+	import zenith.context.game.signals.CheckpointPassed;
 	import zenith.context.game.signals.Collided;
 	
 	public class PlaneViewMediator extends StarlingMediator
@@ -25,6 +25,12 @@ package zenith.context.game.views
 		
 		[Inject]
 		public var collisionDetector:ObstacleCollisionDetector;
+		
+		[Inject]
+		public var checkpointPassed:CheckpointPassed;
+		
+		[Inject]
+		public var checkpointDetector:CheckpointDetector;
 		
 		override public function initialize():void
 		{
@@ -46,6 +52,7 @@ package zenith.context.game.views
 		private function onHeartbeat():void
 		{
 			detectCollision();
+			checkCheckpoint();
 		}
 		
 		private function detectCollision():void
@@ -53,6 +60,15 @@ package zenith.context.game.views
 			if (collisionDetector.hitTest(view.bounds))
 			{
 				collided.dispatch();
+			}
+		}
+		
+		private function checkCheckpoint():void
+		{
+			if (checkpointDetector.hitTest(view.bounds))
+			{
+				checkpointDetector.removeHitView(view.bounds);
+				checkpointPassed.dispatch();
 			}
 		}
 	}

@@ -9,6 +9,7 @@ package zenith.context.game.views
 			addChild(new BackgroundView);
 			addChild(new GroundView);
 			addChild(new PlaneView);
+			addChild(new ScoreView);
 		}
 	}
 }
