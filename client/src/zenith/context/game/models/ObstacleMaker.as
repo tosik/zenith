@@ -2,12 +2,12 @@ package zenith.context.game.models
 {
 	public class ObstacleMaker
 	{
-		private var _count:int = 0;
+		private var _count:int = 70;
 
 		public function make():Obstacle
 		{
-			_count = 30;
-			return new Obstacle(Math.random() * 10);
+			_count = 4 * 16 * 1.5;
+			return new Obstacle(Math.floor(Math.random() * 10) + 4);
 		}
 		
 		public function nextExists():Boolean

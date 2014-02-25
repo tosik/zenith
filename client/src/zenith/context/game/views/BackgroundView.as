@@ -12,8 +12,8 @@ package zenith.context.game.views
 		{
 			var texture:Texture = Texture.fromEmbeddedAsset(BackgroundImage);
 			super(texture);
-			this.width *= 6;
-			this.height *= 6;
+			this.width *= 8;
+			this.height *= 8;
 		}
 	}
 }

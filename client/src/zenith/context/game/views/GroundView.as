@@ -13,7 +13,7 @@ package zenith.context.game.views
 		{
 			wall = Image.fromBitmap(new WallImage);
 			addChild(wall);
-			wall.y = 600;
+			wall.y = 800;
 			wall.width *= 6;
 			wall.height *= 6;
 		}

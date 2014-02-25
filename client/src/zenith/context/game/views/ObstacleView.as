@@ -21,13 +21,13 @@ package zenith.context.game.views
 			upperImage = new Image(texture);
 			lowerImage = new Image(texture);
 			
-			upperImage.y = - height * 32;
-			upperImage.height = 8 * 32;
+			upperImage.height = 16 * 32;
 			upperImage.width = 4 * 32;
+			upperImage.y = - upperImage.height + height * 32;
 			
-			lowerImage.y = upperImage.bounds.bottom + 256;
-			lowerImage.height = 8 * 32;
+			lowerImage.height = 16 * 32;
 			lowerImage.width = 4 * 32;
+			lowerImage.y = upperImage.bounds.bottom + 8 * 32;
 			
 			addChild(upperImage);
 			addChild(lowerImage);

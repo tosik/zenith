@@ -47,7 +47,7 @@ package zenith.context.game.models
 		public function flap():void
 		{
 			velocity = 0;
-			acceleration = -14;
+			acceleration = -10.5;
 
 			changed.dispatch();
 		}
@@ -57,7 +57,7 @@ package zenith.context.game.models
 			velocity += acceleration;
 			height += velocity;
 			
-			acceleration = 1;
+			acceleration = 0.4;
 			
 			changed.dispatch();
 		}

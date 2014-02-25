@@ -27,6 +27,8 @@ package
 		{
 			super();
 			
+			stage.frameRate = 60;
+			
 			// autoOrients をサポート
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;

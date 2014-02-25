@@ -14,13 +14,13 @@ package zenith.context.game.views
 		
 		override public function initialize():void
 		{
-			view.x = 500;
+			view.x = 1000;
 			signalMap.mapListener(heartbeat, onHeartbeat);
 		}
 		
 		private function onHeartbeat():void
 		{
-			view.x -= 10;
+			view.x -= 4;
 			
 			if (view.x + view.width < 0)
 				view.removeFromParent();
