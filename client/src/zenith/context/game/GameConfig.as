@@ -4,6 +4,7 @@ package zenith.context.game
 	import starling.events.TouchPhase;
 	
 	import zenith.commons.Config;
+	import zenith.commons.VisualEffectGenerator;
 	import zenith.commons.signals.HeartbeatSignal;
 	import zenith.context.game.commands.FlapPlaneCommand;
 	import zenith.context.game.commands.IncreaseScoreCommand;
@@ -51,6 +52,7 @@ package zenith.context.game
 			injector.map(ObstacleCollisionDetector).asSingleton();
 			injector.map(CheckpointDetector).asSingleton();
 			injector.map(Score).asSingleton();
+			injector.map(VisualEffectGenerator).asSingleton();
 			
 			// mediators
 			mediatorMap.map(GameView).toMediator(GameViewMediator);
