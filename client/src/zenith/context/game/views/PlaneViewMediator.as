@@ -35,6 +35,7 @@ package zenith.context.game.views
 		override public function initialize():void
 		{
 			signalMap.mapListener(plane.changed, planeChanged);
+			signalMap.mapListener(plane.died, planeDied);
 			signalMap.mapListener(heartbeat, onHeartbeat);
 		}
 		
@@ -70,6 +71,11 @@ package zenith.context.game.views
 				checkpointDetector.removeHitView(view.collision);
 				checkpointPassed.dispatch();
 			}
+		}
+		
+		private function planeDied():void
+		{
+			view.startDyingAction();
 		}
 	}
 }

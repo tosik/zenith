@@ -2,6 +2,8 @@ package zenith.context.game.views
 {
 	import flash.geom.Rectangle;
 	
+	import caurina.transitions.Tweener;
+	
 	import starling.display.Image;
 	import starling.display.Sprite;
 	
@@ -23,6 +25,15 @@ package zenith.context.game.views
 		{
 			var size:Number = 32;
 			return new Rectangle(this.x + width / 2 - size, this.y + height / 2 - size, size, size);
+		}
+		
+		public function startDyingAction():void
+		{
+			Tweener.addTween(this, {
+				y: this.y + 1000,
+				time: 1,
+				transition:'easeInBack'
+			});
 		}
 	}
 }

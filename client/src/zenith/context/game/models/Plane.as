@@ -8,6 +8,7 @@ package zenith.context.game.models
 		public var field:Field;
 
 		public var changed:Signal = new Signal;
+		public var died:Signal = new Signal;
 
 		private var _height:Number;
 		private var _velocity:Number;
@@ -70,6 +71,11 @@ package zenith.context.game.models
 				return true;
 			
 			return false;
+		}
+		
+		public function die():void
+		{
+			died.dispatch();
 		}
 	}
 }
