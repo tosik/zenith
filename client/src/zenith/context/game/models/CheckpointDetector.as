@@ -42,5 +42,15 @@ package zenith.context.game.models
 					view.parent.removeChild(view);
 			}
 		}
+		
+		public function removeAll():void
+		{
+			for each (var view:DisplayObject in list)
+			{
+				if (view.parent != null)
+					view.removeFromParent();
+			}
+			list = new Vector.<DisplayObject>();
+		}
 	}
 }

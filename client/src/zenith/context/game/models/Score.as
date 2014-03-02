@@ -20,5 +20,9 @@ package zenith.context.game.models
 			changed.dispatch();
 		}
 
+		public function reset():void
+		{
+			_value = 0;
+		}
 	}
 }

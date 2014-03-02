@@ -15,7 +15,10 @@ package zenith.context.game.views
 			gameOverText.y = 300;
 			addChild(gameOverText);
 
-			_retryingButton = new Button(Texture.empty(200, 80), "Retry");
+			_retryingButton = new Button(Texture.empty(500, 100), "Retry");
+			_retryingButton.fontSize = 50;
+			_retryingButton.x = 0;
+			_retryingButton.y = 450;
 			addChild(_retryingButton);
 		}
 

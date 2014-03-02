@@ -16,9 +16,7 @@ package zenith.context.game.models
 
 		public function Plane()
 		{
-			_height = 200;
-			velocity = 0;
-			acceleration = 0;
+			reset();
 
 			changed.dispatch();
 		}
@@ -76,6 +74,13 @@ package zenith.context.game.models
 		public function die():void
 		{
 			died.dispatch();
+		}
+		
+		public function reset():void
+		{
+			_height = 200;
+			velocity = 0;
+			acceleration = 0;
 		}
 	}
 }
