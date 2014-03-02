@@ -9,6 +9,7 @@ package zenith.context.game
 	import zenith.context.game.commands.FlapPlaneCommand;
 	import zenith.context.game.commands.IncreaseScoreCommand;
 	import zenith.context.game.commands.MakeGameOverCommand;
+	import zenith.context.game.commands.RestartGameCommand;
 	import zenith.context.game.commands.StartHeartbeatCommand;
 	import zenith.context.game.commands.UpdateObstacleCommand;
 	import zenith.context.game.commands.UpdatePlaneCommand;
@@ -23,7 +24,10 @@ package zenith.context.game
 	import zenith.context.game.signals.CheckpointPassed;
 	import zenith.context.game.signals.Collided;
 	import zenith.context.game.signals.GameViewAppended;
+	import zenith.context.game.signals.RestartRequested;
 	import zenith.context.game.signals.WindowTouched;
+	import zenith.context.game.views.GameOverView;
+	import zenith.context.game.views.GameOverViewMediator;
 	import zenith.context.game.views.GameView;
 	import zenith.context.game.views.GameViewMediator;
 	import zenith.context.game.views.ObstacleView;
@@ -43,6 +47,7 @@ package zenith.context.game
 			// signals
 			injector.map(GameViewAppended).asSingleton();
 			injector.map(Collided).asSingleton();
+			injector.map(RestartRequested).asSingleton();
 			
 			// models
 			injector.map(Field).asSingleton();
@@ -59,6 +64,7 @@ package zenith.context.game
 			mediatorMap.map(PlaneView).toMediator(PlaneViewMediator);
 			mediatorMap.map(ObstacleView).toMediator(ObstacleViewMediator);
 			mediatorMap.map(ScoreView).toMediator(ScoreViewMediator);
+			mediatorMap.map(GameOverView).toMediator(GameOverViewMediator);
 			
 			// commands
 			signalCommandMap.map(HeartbeatSignal).toCommand(UpdatePlaneCommand);
@@ -67,6 +73,7 @@ package zenith.context.game
 			signalCommandMap.map(WindowTouched).toCommand(FlapPlaneCommand);
 			signalCommandMap.map(Collided).toCommand(MakeGameOverCommand);
 			signalCommandMap.map(CheckpointPassed).toCommand(IncreaseScoreCommand);
+			signalCommandMap.map(RestartRequested).toCommand(RestartGameCommand);
 		}
 		
 		private function configureHeartbeatMachine():void
