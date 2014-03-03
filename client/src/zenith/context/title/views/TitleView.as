@@ -1,33 +1,37 @@
 package zenith.context.title.views
 {
 	import starling.display.Button;
+	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.text.TextField;
 	import starling.textures.Texture;
 
 	public class TitleView extends Sprite
 	{
+		[Embed(source="assets/title.png")]
+		private static const TitleImage:Class;
+		
+		[Embed(source="assets/button.png")]
+		private static const ButtonImage:Class;
+		
 		public var startButton:Button;
-		private var titleText:TextField;
 
 		public function TitleView()
 		{
-			titleText = new TextField(400, 100, "ひろっぴーバード", "Verdana", 32, 0x000000, true);
-			addChild(titleText);
+			var background:Image = Image.fromBitmap(new TitleImage);
+			background.scaleX = 0.54;
+			background.scaleY = 0.5;
+			addChild(background);
 
-			var texture:Texture = Texture.empty(300, 50);
-			startButton = new Button(texture, 'Press to start');
+			var texture:Texture = Texture.fromEmbeddedAsset(ButtonImage);
+			startButton = new Button(texture, '▶　おすと　はじまる');
 			startButton.fontSize = 20;
 			addChild(startButton);
 		}
 		
 		public function layoutSubviews():void
 		{
-			titleText.y = 150;
-			titleText.x = stage.stageWidth / 2 - titleText.width / 2;
-
-			startButton.y = 350;
-			startButton.x = stage.stageWidth / 2 - startButton.width / 2;
+			startButton.y = 650;
+			startButton.x = stage.stageWidth / 2;
 		}
 	}
 }
