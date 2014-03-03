@@ -9,13 +9,19 @@ package zenith.context.game.views
 
 		public function ScoreView()
 		{
-			scoreTextField = new TextField(50, 50, "", "Verdana", 30);
+			scoreTextField = new TextField(60, 120, "", "Verdana", 90);
 			addChild(scoreTextField);
 		}
 		
 		public function setScore(value:Number):void
 		{
 			scoreTextField.text = value.toString();
+		}
+		
+		public function layoutSubviews():void
+		{
+			scoreTextField.x = stage.width / 2 - 200;
+			scoreTextField.y = 100;
 		}
 	}
 }

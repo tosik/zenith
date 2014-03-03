@@ -14,6 +14,7 @@ package zenith.context.game.views
 
 		override public function initialize():void
 		{
+			view.layoutSubviews();
 			signalMap.mapListener(score.changed, scoreChanged);
 			scoreChanged();
 		}
