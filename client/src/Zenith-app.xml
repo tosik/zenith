@@ -115,7 +115,7 @@
         <fullScreen>true</fullScreen>
         <visible>true</visible>
         <renderMode>direct</renderMode>
-        <aspectRatio>portrate</aspectRatio>
+        <aspectRatio>portrait</aspectRatio>
     </initialWindow>
 
 	<!-- We recommend omitting the supportedProfiles element, -->
