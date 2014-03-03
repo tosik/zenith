@@ -16,6 +16,8 @@ package zenith.context.title.views
 		
 		override public function initialize():void
 		{
+			view.layoutSubviews();
+
 			eventMap.mapStarlingEvent(view.startButton, Event.TRIGGERED,
 				function(e:Event):void { gameStartRequested.dispatch(); });
 		}
