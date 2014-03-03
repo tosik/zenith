@@ -7,6 +7,9 @@ package zenith.context.game.views
 	
 	public class GameOverView extends Sprite
 	{
+		[Embed(source="assets/button.png")]
+		private static const ButtonImage:Class;
+		
 		private var _retryingButton:Button;
 		public function GameOverView()
 		{
@@ -15,7 +18,7 @@ package zenith.context.game.views
 			gameOverText.y = 300;
 			addChild(gameOverText);
 
-			_retryingButton = new Button(Texture.empty(500, 100), "Retry");
+			_retryingButton = new Button(Texture.fromEmbeddedAsset(ButtonImage), "Retry");
 			_retryingButton.fontSize = 50;
 			_retryingButton.x = 0;
 			_retryingButton.y = 450;
