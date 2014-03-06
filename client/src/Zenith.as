@@ -3,6 +3,7 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.geom.Rectangle;
 	
 	import robotlegs.bender.bundles.mvcs.MVCSBundle;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -29,13 +30,13 @@ package
 			
 			stage.frameRate = 60;
 			
-			// autoOrients をサポート
-			stage.align = StageAlign.TOP_LEFT;
+			_starling = new Starling(StarlingRootSprite, stage, new Rectangle(0, 0, 640, 1136));
+			_starling.stage.stageWidth  = 640;
+			_starling.stage.stageHeight = 1136;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
-
-			_starling = new Starling(StarlingRootSprite, stage, stage.fullScreenSourceRect);
+			stage.align = StageAlign.TOP_LEFT;
 			_starling.start();
-
+			
 			var root:Sprite = this;
 			_starling.addEventListener(starling.events.Event.ROOT_CREATED, function():void
 			{
