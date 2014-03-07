@@ -20,7 +20,7 @@ package zenith.context.game.views
 
 			_retryingButton = new Button(Texture.fromEmbeddedAsset(ButtonImage), "Retry");
 			_retryingButton.fontSize = 50;
-			_retryingButton.x = 0;
+			_retryingButton.x = 200;
 			_retryingButton.y = 450;
 			addChild(_retryingButton);
 		}
