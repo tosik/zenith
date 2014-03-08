@@ -31,12 +31,18 @@ package zenith.context.game.views
 		
 		[Inject]
 		public var checkpointDetector:CheckpointDetector;
-		
+
 		override public function initialize():void
 		{
 			signalMap.mapListener(plane.changed, planeChanged);
 			signalMap.mapListener(plane.died, planeDied);
 			signalMap.mapListener(heartbeat, onHeartbeat);
+		}
+		
+		override public function destroy():void
+		{
+			view.cancelAction();
+			super.destroy();
 		}
 		
 		private function planeChanged():void
@@ -52,8 +58,11 @@ package zenith.context.game.views
 
 		private function onHeartbeat():void
 		{
-			detectCollision();
-			checkCheckpoint();
+			if (!plane.isDied)
+			{
+				detectCollision();
+				checkCheckpoint();
+			}
 		}
 		
 		private function detectCollision():void
@@ -75,7 +84,8 @@ package zenith.context.game.views
 		
 		private function planeDied():void
 		{
-			view.startDyingAction();
+			if (!plane.isDied)
+				view.startDyingAction();
 		}
 	}
 }

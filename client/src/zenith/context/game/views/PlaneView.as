@@ -35,5 +35,10 @@ package zenith.context.game.views
 				transition:'easeInBack'
 			});
 		}
+		
+		public function cancelAction():void
+		{
+			Tweener.removeTweens(this);
+		}
 	}
 }

@@ -6,6 +6,7 @@ package zenith.context.game.models
 	
 	import starling.display.DisplayObject;
 	import starling.events.Event;
+	import starling.events.EventDispatcher;
 
 	public class CheckpointDetector
 	{
@@ -21,6 +22,7 @@ package zenith.context.game.models
 		protected function removed(e:Event):void
 		{
 			list.splice(list.indexOf(e.target as DisplayObject), 1);
+			eventMap.unmapStarlingEvent(e.target as EventDispatcher, Event.REMOVED_FROM_STAGE, removed);
 		}
 		
 		public function hitTest(bounds:Rectangle):Boolean
@@ -51,6 +53,7 @@ package zenith.context.game.models
 					view.removeFromParent();
 			}
 			list = new Vector.<DisplayObject>();
+			eventMap.unmapListeners();
 		}
 	}
 }

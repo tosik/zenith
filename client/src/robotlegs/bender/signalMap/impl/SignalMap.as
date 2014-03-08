@@ -19,7 +19,7 @@ package robotlegs.bender.signalMap.impl
 		}
 		public function unmapListeners():void
 		{
-			for each (var obj:Object in signals)
+			for each (var obj:Object in signals.concat())
 			{
 				unmapListener(obj.signal, obj.listener);
 			}

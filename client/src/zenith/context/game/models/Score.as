@@ -22,7 +22,7 @@ package zenith.context.game.models
 
 		public function reset():void
 		{
-			_value = 0;
+			value = 0;
 		}
 	}
 }

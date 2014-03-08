@@ -39,7 +39,7 @@ package robotlegs.bender.extensions.starling.impl
 		
 		private function unmapStarlingListeners():void
 		{
-			for each (var info:Object in starlingListeners)
+			for each (var info:Object in starlingListeners.concat())
 			{
 				unmapStarlingEvent(info.eventDispatcher, info.type, info.listener);
 			}

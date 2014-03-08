@@ -11,7 +11,8 @@ package zenith.context.game.commands
 
 		override public function execute():void
 		{
-			plane.flap();
+			if (!plane.isDied)
+				plane.flap();
 		}
 	}
 }

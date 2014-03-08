@@ -13,6 +13,7 @@ package zenith.context.game.models
 		private var _height:Number;
 		private var _velocity:Number;
 		private var acceleration:Number;
+		private var _isDied:Boolean;
 
 		public function Plane()
 		{
@@ -43,6 +44,11 @@ package zenith.context.game.models
 			changed.dispatch();
 		}
 
+		public function get isDied():Boolean
+		{
+			return _isDied;
+		}
+		
 		public function flap():void
 		{
 			velocity = 0;
@@ -74,6 +80,7 @@ package zenith.context.game.models
 		public function die():void
 		{
 			died.dispatch();
+			_isDied = true;
 		}
 		
 		public function reset():void
@@ -81,6 +88,7 @@ package zenith.context.game.models
 			_height = 200;
 			velocity = 0;
 			acceleration = 0;
+			_isDied = false;
 		}
 	}
 }
