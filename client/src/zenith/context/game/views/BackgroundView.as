@@ -12,8 +12,13 @@ package zenith.context.game.views
 		{
 			var texture:Texture = Texture.fromEmbeddedAsset(BackgroundImage);
 			super(texture);
-			this.width *= 8;
-			this.height *= 8;
+		}
+		
+		public function layoutSubviews():void
+		{
+			var scale:Number = stage.stageWidth / this.width;
+			this.scaleX = scale;
+			this.scaleY = scale;
 		}
 	}
 }

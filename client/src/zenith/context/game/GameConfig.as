@@ -26,6 +26,8 @@ package zenith.context.game
 	import zenith.context.game.signals.GameViewAppended;
 	import zenith.context.game.signals.RestartRequested;
 	import zenith.context.game.signals.WindowTouched;
+	import zenith.context.game.views.BackgroundView;
+	import zenith.context.game.views.BackgroundViewMediator;
 	import zenith.context.game.views.GameOverView;
 	import zenith.context.game.views.GameOverViewMediator;
 	import zenith.context.game.views.GameView;
@@ -68,6 +70,7 @@ package zenith.context.game
 			mediatorMap.map(ScoreView).toMediator(ScoreViewMediator);
 			mediatorMap.map(GameOverView).toMediator(GameOverViewMediator);
 			mediatorMap.map(GroundView).toMediator(GroundViewMediator);
+			mediatorMap.map(BackgroundView).toMediator(BackgroundViewMediator);
 			
 			// commands
 			signalCommandMap.map(HeartbeatSignal).toCommand(UpdatePlaneCommand);

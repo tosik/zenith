@@ -13,9 +13,14 @@ package zenith.context.game.views
 		{
 			wall = Image.fromBitmap(new WallImage);
 			addChild(wall);
-			wall.y = 800;
-			wall.width *= 6;
-			wall.height *= 6;
+		}
+		
+		public function layoutSubviews():void
+		{
+			wall.y = 900;
+			var scale:Number = stage.stageWidth / wall.width;
+			wall.scaleX = scale;
+			wall.scaleY = scale;
 		}
 	}
 }

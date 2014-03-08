@@ -10,28 +10,30 @@ package zenith.context.title.views
 		[Embed(source="assets/title.png")]
 		private static const TitleImage:Class;
 		
-		[Embed(source="assets/button.png")]
+		[Embed(source="assets/start_button.png")]
 		private static const ButtonImage:Class;
 		
 		public var startButton:Button;
+		private var background:Image;
 
 		public function TitleView()
 		{
-			var background:Image = Image.fromBitmap(new TitleImage);
-			background.scaleX = 0.54;
-			background.scaleY = 0.5;
+			background = Image.fromBitmap(new TitleImage);
 			addChild(background);
 
 			var texture:Texture = Texture.fromEmbeddedAsset(ButtonImage);
-			startButton = new Button(texture, '▶　おすと　はじまる');
-			startButton.fontSize = 20;
+			startButton = new Button(texture, '');
 			addChild(startButton);
 		}
 		
 		public function layoutSubviews():void
 		{
-			startButton.y = 650;
-			startButton.x = stage.stageWidth / 2;
+			var scale:Number = stage.stageWidth / background.width;
+			background.scaleX = scale;
+			background.scaleY = scale;
+
+			startButton.y = 380;
+			startButton.x = stage.stageWidth / 2 - startButton.width / 2;
 		}
 	}
 }

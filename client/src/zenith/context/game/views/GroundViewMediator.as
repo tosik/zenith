@@ -15,6 +15,7 @@ package zenith.context.game.views
 		override public function initialize():void
 		{
 			collisionDetector.add(view);
+			view.layoutSubviews();
 		}
 	}
 }
