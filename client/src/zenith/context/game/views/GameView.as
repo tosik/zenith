@@ -6,7 +6,11 @@ package zenith.context.game.views
 	{
 		public function GameView()
 		{
+			var obstacles:Sprite = new Sprite();
+			obstacles.name = "obstacles";
+
 			addChild(new BackgroundView);
+			addChild(obstacles);
 			addChild(new GroundView);
 			addChild(new PlaneView);
 			addChild(new ScoreView);

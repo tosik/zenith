@@ -23,7 +23,7 @@ package zenith.context.game.views
 		
 		public function get collision():Rectangle
 		{
-			var size:Number = 32;
+			var size:Number = 16;
 			return new Rectangle(this.x + width / 2 - size, this.y + height / 2 - size, size, size);
 		}
 		

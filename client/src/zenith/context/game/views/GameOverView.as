@@ -1,27 +1,31 @@
 package zenith.context.game.views
 {
 	import starling.display.Button;
+	import starling.display.Image;
 	import starling.display.Sprite;
-	import starling.text.TextField;
 	import starling.textures.Texture;
+	import starling.textures.TextureSmoothing;
 	
 	public class GameOverView extends Sprite
 	{
-		[Embed(source="assets/button.png")]
-		private static const ButtonImage:Class;
+		[Embed(source="assets/restart_button.png")]
+		private static const RestartButtonImage:Class;
+		
+		[Embed(source="assets/gameover.png")]
+		private static const GameOverImage:Class;
 		
 		private var _retryingButton:Button;
+		private var gameOverText:Image;
+
 		public function GameOverView()
 		{
-			var gameOverText:TextField = new TextField(700, 100, "Game Over", "Verdana", 50, 0x000000, true);
-			gameOverText.x = 0;
-			gameOverText.y = 300;
+			gameOverText = new Image(Texture.fromEmbeddedAsset(GameOverImage));
+			gameOverText.smoothing = TextureSmoothing.TRILINEAR;
 			addChild(gameOverText);
 
-			_retryingButton = new Button(Texture.fromEmbeddedAsset(ButtonImage), "Retry");
-			_retryingButton.fontSize = 50;
-			_retryingButton.x = 200;
-			_retryingButton.y = 450;
+			_retryingButton = new Button(Texture.fromEmbeddedAsset(RestartButtonImage), "");
+			_retryingButton.width /= 2;
+			_retryingButton.height /= 2;
 			addChild(_retryingButton);
 		}
 
@@ -30,5 +34,13 @@ package zenith.context.game.views
 			return _retryingButton;
 		}
 
+		public function layoutSubviews():void
+		{
+			gameOverText.x = stage.stageWidth / 2 - gameOverText.width / 2;
+			gameOverText.y = 350;
+
+			_retryingButton.x = stage.stageWidth / 2 - _retryingButton.width / 2;
+			_retryingButton.y = 450;
+		}
 	}
 }

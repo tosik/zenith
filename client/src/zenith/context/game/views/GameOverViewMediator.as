@@ -17,6 +17,7 @@ package zenith.context.game.views
 		override public function initialize():void
 		{
 			eventMap.mapStarlingEvent(view.retryingButton, Event.TRIGGERED, retryingButtonTriggered);
+			view.layoutSubviews();
 		}
 		
 		private function retryingButtonTriggered(e:Event):void
