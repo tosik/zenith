@@ -34,8 +34,8 @@ package zenith.context.game.views
 		
 		public function layoutSubviews():void
 		{
-			scoreTextField.x = stage.width / 2 - 330;
-			scoreTextField.y = 100;
+			scoreTextField.x = stage.stageWidth / 2 - 150;
+			scoreTextField.y = 20;
 		}
 	}
 }
