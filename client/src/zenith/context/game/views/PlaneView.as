@@ -16,14 +16,14 @@ package zenith.context.game.views
 		public function PlaneView()
 		{
 			plane = Image.fromBitmap(new PlaneImage);
-			plane.width *= 4;
-			plane.height *= 4;
+			//plane.width *= 4;
+			//plane.height *= 4;
 			addChild(plane);
 		}
 		
 		public function get collision():Rectangle
 		{
-			var size:Number = 16;
+			var size:Number = 40;
 			return new Rectangle(this.x + width / 2 - size, this.y + height / 2 - size, size, size);
 		}
 		
