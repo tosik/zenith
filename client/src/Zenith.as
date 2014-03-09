@@ -3,7 +3,6 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
-	import flash.geom.Rectangle;
 	
 	import robotlegs.bender.bundles.mvcs.MVCSBundle;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -30,9 +29,10 @@ package
 			
 			stage.frameRate = 60;
 			
-			_starling = new Starling(StarlingRootSprite, stage, new Rectangle(0, 0, 640, 1136));
-			_starling.stage.stageWidth  = 640;
-			_starling.stage.stageHeight = 1136;
+//			_starling = new Starling(StarlingRootSprite, stage, new Rectangle(0, 0, 640, 1136));
+//			_starling.stage.stageWidth  = 640;
+//			_starling.stage.stageHeight = 1136;
+			_starling = new Starling(StarlingRootSprite, stage, stage.fullScreenSourceRect);
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 			_starling.start();
