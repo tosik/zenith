@@ -15,14 +15,14 @@
 
 	<!-- A universally unique application identifier. Must be unique across all AIR applications.
 	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>Zenith</id>
+	<id>jp.tosik.Zenith</id>
 
 	<!-- Used as the filename for the application. Required. -->
 	<filename>Zenith</filename>
 
 	<!-- The name that is displayed in the AIR application installer. 
 	May have multiple values for each language. See samples or xsd schema file. Optional. -->
-	<name>Zenith</name>
+	<name>ひろっぴーバード</name>
 	
 	<!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
 	Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
@@ -137,30 +137,12 @@
 
 	<!-- The icon the system uses for the application. For at least one resolution,
 	specify the path to a PNG file included in the AIR package. Optional. -->
-	<!-- <icon>
-		<image16x16></image16x16>
-		<image29x29></image29x29>
-		<image32x32></image32x32>
-		<image36x36></image36x36>
-		<image40x40></image40x40>
-		<image48x48></image48x48>
-		<image50x50></image50x50>
-		<image57x57></image57x57>
-		<image58x58></image58x58>
-		<image72x72></image72x72>
-		<image76x76></image76x76>
-		<image80x80></image80x80>
-		<image96x96></image96x96>
-		<image100x100></image100x100>
-		<image114x114></image114x114>
-		<image120x120></image120x120>
-		<image128x128></image128x128>
-		<image144x144></image144x144>
-		<image152x152></image152x152>
-		<image512x512></image512x512>
-		<image732x412></image732x412>
-		<image1024x1024></image1024x1024>
-	</icon> -->
+	<icon>
+		<image29x29>Icon-Small.png</image29x29>
+		<image57x57>Icon.png</image57x57>
+		<image72x72>Icon-72.png</image72x72>
+		<image144x144>Icon-72@2x.png</image144x144>
+	</icon>
 
 	<!-- Whether the application handles the update when a user double-clicks an update version
 	of the AIR file (true), or the default AIR application installer handles the update (false).
