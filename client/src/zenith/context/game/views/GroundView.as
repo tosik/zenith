@@ -17,7 +17,7 @@ package zenith.context.game.views
 		
 		public function layoutSubviews():void
 		{
-			wall.y = stage.stageHeight * 0.797;
+			wall.y = 905;
 			var scale:Number = stage.stageWidth / wall.width;
 			wall.scaleX = scale;
 			wall.scaleY = scale;
